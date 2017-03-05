@@ -28,7 +28,7 @@ function loadQuestions(g) {
                 spokenQuestion: "",
                 result: 'next',
                 options: [
-                    {correct: true, imageSrc: "img/spring/the-bees-and-spring-a4.jpg"},
+                    {correct: true, imageSrc: "img/spring/The-bees-and-spring-a4.jpg"},
                     {imageSrc: "img/winter/The-Ice-Hockey-a4.jpg"},
                     {imageSrc: "img/summer/Dora-a4.jpg"},
                     {imageSrc: "img/fall/The-Cute-Pilgrim-Hat-a4.jpg"}
@@ -65,7 +65,7 @@ function loadQuestions(g) {
                     {correct: true, imageSrc: "img/spring/spring-coloring-pages-04-a4.jpg"},
                     {correct: true, imageSrc: "img/spring/beautiful-spring-a4.jpg"},
                     {correct: true, imageSrc: "img/spring/The-a-day-in-spring-a4.jpg"},
-                    {correct: true, imageSrc: "img/spring/the-bees-and-spring-a4.jpg"}
+                    {correct: true, imageSrc: "img/spring/The-bees-and-spring-a4.jpg"}
                 ]
             }
         ]
