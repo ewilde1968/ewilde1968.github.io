@@ -17,7 +17,7 @@ function loadQuestions(g) {
                 spokenQuestion: "img/winter/Winter.m4a",
                 result: 'next',
                 options: [
-                    {correct: true, imageSrc: "img/winter/The-Dog-Sled-a4.jpg"},
+                    {correct: true, imageSrc: "img/winter/The-Dog-Sled-a4-print.jpg", thumbSrc: "img/winter/The-Dog-Sled-a4.jpg"},
                     {imageSrc: "img/spring/beautiful-spring-a4.jpg"},
                     {imageSrc: "img/summer/Beach-a4.jpg"},
                     {imageSrc: "img/fall/Autunno-27-a4.jpg"}
@@ -28,7 +28,7 @@ function loadQuestions(g) {
                 spokenQuestion: "",
                 result: 'next',
                 options: [
-                    {correct: true, imageSrc: "img/spring/The-bees-and-spring-a4.jpg"},
+                    {correct: true, imageSrc: "img/spring/The-bees-and-spring-a4-print.jpg", thumbSrc: "img/spring/The-bees-and-spring-a4.jpg"},
                     {imageSrc: "img/winter/The-Ice-Hockey-a4.jpg"},
                     {imageSrc: "img/summer/Dora-a4.jpg"},
                     {imageSrc: "img/fall/The-Cute-Pilgrim-Hat-a4.jpg"}
@@ -122,7 +122,7 @@ function setQuestion(q, numColumns) {
                 tn = null;
             
             // set up attributes
-            img.setAttribute('src', o.imageSrc);
+            img.setAttribute('src', o.thumbSrc || o.imageSrc);
             img.className = 'optionNotChosen';
             lnk.className = 'optionLink';
             

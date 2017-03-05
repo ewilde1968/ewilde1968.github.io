@@ -45,9 +45,6 @@
             
             document.addEventListener('printButtonAdded', function (event) {
                 $(".printButton").printPage({
-                    loadedCallback: function(doc) {
-                        var img = doc.getElementsByTagName('img')[0];
-                    },
                     afterCallback: function() {
                         document.dispatchEvent(new Event('finishedQuiz'));
                     }

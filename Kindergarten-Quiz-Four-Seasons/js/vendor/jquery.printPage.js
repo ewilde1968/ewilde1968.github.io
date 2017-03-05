@@ -59,9 +59,6 @@
             var selector = 'printPage' + pluginOptions.id;
 
             frames.printPage.focus();
-            if ($.isFunction(pluginOptions.loadedCallback)) {
-                pluginOptions.loadedCallback(frames.printPage.document);
-            }
             frames.printPage.print();
             if (pluginOptions.showMessage) {
                 unloadMessage();
