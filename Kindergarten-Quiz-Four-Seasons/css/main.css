@@ -106,12 +106,65 @@ textarea {
     margin-left: 20px;
 }
 
-.option {
-    max-width: 43%;
-    max-height: 30%;
-    border: 2px solid black;
+#answerBox {
+    padding: 1rem;
+    padding-left: 3rem;
+}
+
+#answerList {
+    display: table-row-group;
+}
+
+#confirmationCelebration {
+    transition-duration: 250ms;
+    position: absolute;
+    top: 0;
+    left: 20rem;
+    background-color: transparent;
+}
+
+.correctConfirmation {
+    opacity: 1;
+}
+
+.noCorrectConfirmation {
+    opacity: 0;
+}
+
+.optionRow {
+    display: table-row;
+}
+
+.optionRow a {
+    min-width: 25rem;
+    display: table-cell;
+    text-align: center;
+}
+
+.printButton img {
+    border-style: outset;
+    border-color: #888888;
+}
+
+.optionRow img {
+    max-height: 15rem;
+    border-width: 10px;
     border-radius: 10px;
     margin: 0.4rem;
+}
+
+.option {
+    border-style: outset;
+}
+
+.chosenOptionCorrect {
+    border-style: inset;
+    border-color: green;
+}
+
+.chosenOptionIncorrect {
+    border-style: inset;
+    border-color: crimson;
 }
 
 html {

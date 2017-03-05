@@ -12,7 +12,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" media="print" href="css/print.css">
+        <!-- <link rel="stylesheet" media="print" href="css/print.css"> -->
         
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="js/vendor/jquery-3.1.1.min.js"></script>
@@ -22,8 +22,12 @@
     <body>
         <div id='quizTitle'></div>
         <div id='questionTitle'></div>
-        <div><ul id='answerList'></ul></div>
+        <audio id='audioObj' display='none'></audio>
+        <div id='answerBox'><ul id='answerList'></ul></div>
+        <div id='confirmationCelebration'><img src='img/check-mark-2-512.gif' opacity='0'></img></div>
         <script>
+            var numRows = 2;
+            
             window.onload = function() {
                 // set globals, list of questions, answers, sources
                 var t = document.getElementById('quizTitle');
@@ -38,7 +42,7 @@
                     t.textContent = document.globalVars.quizTitle;
                 }
 
-                doFirstQuestion();
+                doFirstQuestion(numRows);
             };
             
             document.addEventListener('printButtonAdded', function (event) {
@@ -54,7 +58,7 @@
                 // wait and celebrate completion
                 
                 // restart
-                doFirstQuestion();
+                doFirstQuestion(numRows);
             }, false);
         </script>
         
