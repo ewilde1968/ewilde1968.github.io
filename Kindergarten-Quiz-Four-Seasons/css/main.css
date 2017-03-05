@@ -116,19 +116,10 @@ textarea {
 }
 
 #confirmationCelebration {
-    transition-duration: 250ms;
     position: absolute;
     top: 0;
     left: 20rem;
     background-color: transparent;
-}
-
-.correctConfirmation {
-    opacity: 1;
-}
-
-.noCorrectConfirmation {
-    opacity: 0;
 }
 
 .optionRow {
@@ -153,8 +144,9 @@ textarea {
     margin: 0.4rem;
 }
 
-.option {
+.optionNotChosen {
     border-style: outset;
+    border-color: #888888;
 }
 
 .chosenOptionCorrect {

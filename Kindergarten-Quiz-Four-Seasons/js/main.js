@@ -87,6 +87,7 @@ function setQuestion(q, numColumns) {
     'use strict';
     var qt = document.getElementById('questionTitle'),
         l = document.getElementById('answerList'),
+        celeb = document.getElementById('confirmationCelebration'),
         ev = null,
         rowDiv = null,
         audioObj = null,
@@ -95,7 +96,7 @@ function setQuestion(q, numColumns) {
     // empty past data
     qt.innerHTML = '';
     l.innerHTML = '';
-    document.getElementById('confirmationCelebration').className = 'noCorrectConfirmation';
+    celeb.innerHTML = '';
     
     // set question title
     if (q && q.questionTitle) {
@@ -117,11 +118,12 @@ function setQuestion(q, numColumns) {
         q.options.forEach(function (o, oI, oArr) {
             // add each option
             var img = document.createElement('img'),
-                lnk = document.createElement('a');
+                lnk = document.createElement('a'),
+                tn = null;
             
             // set up attributes
             img.setAttribute('src', o.imageSrc);
-            img.className = 'option';
+            img.className = 'optionNotChosen';
             lnk.className = 'optionLink';
             
             // append to row, creating a new row if needed
@@ -135,17 +137,22 @@ function setQuestion(q, numColumns) {
             
             switch (q.result) {
             case 'next':
-                img.onclick = o.correct ? function (event) {
+                lnk.onclick = o.correct ? function (event) {
                     // confirm correct answer
-                    this.className = 'chosenOptionCorrect';
-                    document.getElementById('confirmationCelebration').className = 'correctConfirmation';
+                    var tn = this.getElementsByTagName('img')[0];
+                    tn.className = 'chosenOptionCorrect';
+                    
+                    tn = document.createElement('img');
+                    tn.setAttribute('src', 'img/check-mark-2-512.gif');
+                    document.getElementById('confirmationCelebration').appendChild(tn);
                     
                     document.dispatchEvent(new CustomEvent('correctAnswer', {detail: numColumns}));
                         
                     return false;
                 } : function (event) {
                     // turn red
-                    this.className = 'chosenOptionIncorrect';
+                    tn = this.getElementsByTagName('img')[0];
+                    tn.className = 'chosenOptionIncorrect';
                         
                     return false;
                 };
