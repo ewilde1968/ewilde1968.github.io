@@ -12,12 +12,10 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <!-- <link rel="stylesheet" media="print" href="css/print.css"> -->
         
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="js/vendor/jquery-3.1.1.min.js"></script>
         <script src="js/vendor/jquery.printPage.js"></script>
-        <!-- <script>$(document).ready(function(){$(".printButton").printpage();});</script> -->
     </head>
     <body>
         <div id='quizTitle'></div>
@@ -47,16 +45,15 @@
             
             document.addEventListener('printButtonAdded', function (event) {
                 $(".printButton").printPage({
+                    loadedCallback: function(doc) {
+                        var img = doc.getElementsByTagName('img')[0];
+                    },
                     afterCallback: function() {
-                        var ev = new Event('finishedQuiz');
-                        document.dispatchEvent(ev);
+                        document.dispatchEvent(new Event('finishedQuiz'));
                     }
                 });
             }, false);
             document.addEventListener('finishedQuiz',function (event) {
-                // TODO
-                // wait and celebrate completion
-                
                 // restart
                 doFirstQuestion(numRows);
             }, false);
