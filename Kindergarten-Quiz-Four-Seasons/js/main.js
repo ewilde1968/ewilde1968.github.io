@@ -17,10 +17,10 @@ function loadQuestions(g) {
                 spokenQuestion: "img/winter/Winter.m4a",
                 result: 'next',
                 options: [
-                    {correct: true, imageSrc: "img/winter/The-Dog-Sled-a4-print.jpg", thumbSrc: "img/winter/The-Dog-Sled-a4.jpg"},
-                    {imageSrc: "img/spring/beautiful-spring-a4.jpg"},
-                    {imageSrc: "img/summer/Beach-a4.jpg"},
-                    {imageSrc: "img/fall/Autunno-27-a4.jpg"}
+                    {correct: true, imageSrc: "img/winter/winter00.jpeg"},
+                    {imageSrc: "img/spring/Spring00.jpeg"},
+                    {imageSrc: "img/summer/Summer00.jpeg"},
+                    {imageSrc: "img/fall/Fall00.jpeg"}
                 ]
             },
             {
@@ -28,10 +28,10 @@ function loadQuestions(g) {
                 spokenQuestion: "",
                 result: 'next',
                 options: [
-                    {correct: true, imageSrc: "img/spring/The-bees-and-spring-a4-print.jpg", thumbSrc: "img/spring/The-bees-and-spring-a4.jpg"},
+                    {correct: true, imageSrc: "img/spring/The-bees-and-spring-a4.jpg"},
                     {imageSrc: "img/winter/The-Ice-Hockey-a4.jpg"},
                     {imageSrc: "img/summer/Dora-a4.jpg"},
-                    {imageSrc: "img/fall/The-Cute-Pilgrim-Hat-a4.jpg"}
+                    {imageSrc: "img/fall/Fall01.jpeg"}
                 ]
             },
             
@@ -90,8 +90,7 @@ function setQuestion(q, numColumns) {
         celeb = document.getElementById('confirmationCelebration'),
         ev = null,
         rowDiv = null,
-        audioObj = null,
-        addedPrintButton = false;
+        audioObj = null;
     
     // empty past data
     qt.innerHTML = '';
@@ -122,7 +121,7 @@ function setQuestion(q, numColumns) {
                 tn = null;
             
             // set up attributes
-            img.setAttribute('src', o.thumbSrc || o.imageSrc);
+            img.setAttribute('src', o.imageSrc);
             img.className = 'optionNotChosen';
             lnk.className = 'optionLink';
             
@@ -158,22 +157,19 @@ function setQuestion(q, numColumns) {
                 };
                 break;
             case 'print':
-                // <a href="filetoprint.jpg" class='printButton'></a>
+                // <a href="filetoprint.jpg" target='_blank' class='printButton'></a>
                 lnk.setAttribute('href', o.imageSrc);
+                lnk.setAttribute('target', '_blank');
+                lnk.onclick = function (event) {
+                    doFirstQuestion(numColumns);
+                };
                 lnk.className = 'printButton';
-                addedPrintButton = true;
                 break;
             default:
                 window.alert("Error, malformed question result");
                 break;
             }
         });
-
-        // update the DOM with new print buttons
-        if (addedPrintButton) {
-            ev = new Event('printButtonAdded');
-            document.dispatchEvent(ev);
-        }
     } else {
         window.alert("Error, malformed question options");
     }
