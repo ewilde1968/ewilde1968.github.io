@@ -17,7 +17,7 @@ function loadQuestions(g) {
                 spokenQuestion: "img/winter/Winter.m4a",
                 result: 'next',
                 options: [
-                    {correct: true, imageSrc: "img/winter/winter00.jpeg"},
+                    {correct: true, imageSrc: "img/winter/Winter00.jpeg"},
                     {imageSrc: "img/spring/Spring00.jpeg"},
                     {imageSrc: "img/summer/Summer00.jpeg"},
                     {imageSrc: "img/fall/Fall00.jpeg"}
